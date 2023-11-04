@@ -1,5 +1,6 @@
 #include <iostream>
 #include "List.hpp"
+// #include "iterator.hpp"
 
 // int main()
 // {
@@ -85,23 +86,55 @@
 // }
 #include <list>
 
+// int main()
+// {
+//     // Iterator<int> it;
+//     std::list<std::string> stdobj;
+//     List<std::string> obj;
+//     std::list<std::string>::iterator it = stdobj.begin();
+//     List<std::string>::iterator itList = obj.begin();
+    
+//     // itList  = obj.begin();
+//     std::string str = "lalala";
+//     obj.push_back(str);
+//     obj.front() = "urish ban";
+//     std::cout << obj.front() << std::endl;
+
+//     std::cout << std::endl;
+//     stdobj.push_back(str);
+//     stdobj.front() = "urish ban";
+//     std::cout << stdobj.front() << std::endl;
+
+//     std::cout << std::endl;
+// }
+
 int main()
 {
-    std::list<std::string> stdobj;
-    List<std::string> obj;
-    std::string str = "lalala";
-    obj.push_back(str);
-
-    obj.front() = "urish ban";
-    std::cout << obj.front() << std::endl;
-
-    std::cout << std::endl;
-    stdobj.push_back(str);
-
-    stdobj.front() = "urish ban";
-    std::cout << stdobj.front() << std::endl;
-
-    std::cout << std::endl;
+    try
+    {
+        List<int> obj;
+        obj.push_front(12);
+        obj.push_front(2);
+        obj.push_front(0);
+        List<int>::iterator it = obj.begin();
+        while (it != obj.end())
+        {
+           std::cout << *it << std::endl;
+           it++;
+        }
+           it--;
+        // it--;
+        // std::cout << *it << std::endl;
+        // while (it != obj.begin()) {
+        //    std::cout << *it << std::endl;
+        //     it--;
+        // }
+        
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 }
 
 

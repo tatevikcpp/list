@@ -1,5 +1,8 @@
+#pragma once
 #include <iostream>
 #include <string>
+#include "iterator.hpp"
+
 
 template <typename T>
 class Node
@@ -42,6 +45,8 @@ class Node
 template <typename T>
 class List
 {
+    public:
+        typedef Iterator<T> iterator;
     public:
         List() : m_head(NULL), m_tail(NULL), m_size(0) {}
 
@@ -324,8 +329,17 @@ class List
             }
         }
 
+        Iterator<T> begin() const
+        {
+            return (Iterator<T>(m_head));
+        }
+        Iterator<T> end() const
+        {
+            return (Iterator<T>(NULL));
+        }
     private:
         Node<T> *m_head;
         Node<T> *m_tail;
         size_t m_size;
+        // Iterator<T> it; ?
 };
